@@ -1,4 +1,4 @@
-import { FONT_FAMILY, FONT_SIZE } from 'constants/appFonts';
+// import { FONT_FAMILY, FONT_SIZE } from 'constants/appFonts';
 import { CUSTOM_COLOR } from 'constants/colors';
 import { BOTTOM_TAB_HEIGHT } from 'constants/size';
 import React from 'react';
@@ -108,9 +108,9 @@ const styles = StyleSheet.create({
   },
   tabTitle: {
     textAlign: 'center',
-    fontSize: FONT_SIZE.Small,
+    // fontSize: FONT_SIZE.Small,
     color: CUSTOM_COLOR.Black,
-    fontFamily: FONT_FAMILY.BOLD,
+    // fontFamily: FONT_FAMILY.BOLD,
   },
   ios: {
     height: BOTTOM_TAB_HEIGHT + scale(25),

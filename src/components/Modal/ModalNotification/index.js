@@ -1,11 +1,11 @@
-import {icDone, icError, icQuestion, icWarning, logo} from 'assets/images';
+import { icSuccess, icError, icWarning } from 'assets/images';
 import AppText from 'components/AppText';
 import StyledTouchable from 'components/StyledTouchable';
-import {CUSTOM_COLOR} from 'constants/colors';
-import React, {useCallback, useEffect, useState} from 'react';
-import {DeviceEventEmitter, Image, View} from 'react-native';
+import { CUSTOM_COLOR } from 'constants/colors';
+import React, { useCallback, useEffect, useState } from 'react';
+import { DeviceEventEmitter, Image, View } from 'react-native';
 import Modal from 'react-native-modal';
-import {scale} from 'utils/responsive';
+import { scale } from 'utils/responsive';
 import styles from './styles';
 
 const MODAL = 'MODAL_NOTIFICATION';
@@ -17,7 +17,7 @@ const optionsDefault = {
   hasConfirm: true,
   textCancel: 'popup.no',
   textConfirm: 'popup.yes',
-  image: icDone,
+  image: icSuccess,
   onPressCancel: () => {},
   onPressConfirm: () => {},
 };
@@ -41,19 +41,16 @@ const ModalNotification = React.memo(() => {
   }, [options]);
 
   useEffect(() => {
-    const listener = DeviceEventEmitter.addListener(
-      MODAL,
-      (isShow, _options) => {
-        if (isShow) {
-          setTimeout(() => {
-            setOptions({...optionsDefault, ..._options});
-            setIsVisible(true);
-          }, 30);
-        } else {
-          setIsVisible(false);
-        }
-      },
-    );
+    const listener = DeviceEventEmitter.addListener(MODAL, (isShow, _options) => {
+      if (isShow) {
+        setTimeout(() => {
+          setOptions({ ...optionsDefault, ..._options });
+          setIsVisible(true);
+        }, 30);
+      } else {
+        setIsVisible(false);
+      }
+    });
 
     return () => {
       listener.remove();
@@ -61,16 +58,9 @@ const ModalNotification = React.memo(() => {
   }, [options]);
 
   return (
-    <Modal
-      isVisible={isVisible}
-      backdropTransitionOutTiming={0}
-      style={styles.containerModal}>
+    <Modal isVisible={isVisible} backdropTransitionOutTiming={0} style={styles.containerModal}>
       <View style={styles.container}>
-        <Image
-          source={options.image}
-          resizeMode="contain"
-          style={styles.iconImage}
-        />
+        <Image source={options.image} resizeMode="contain" style={styles.iconImage} />
         {!!options.title && (
           <View style={[styles.viewSection, styles.viewTitle]}>
             <AppText bold translate style={styles.title}>
@@ -85,9 +75,7 @@ const ModalNotification = React.memo(() => {
         </View>
         <View style={styles.viewMultipleButton}>
           {options.hasCancel && (
-            <StyledTouchable
-              onPress={onPressCancel}
-              style={styles.buttonCancelActiveStyle}>
+            <StyledTouchable onPress={onPressCancel} style={styles.buttonCancelActiveStyle}>
               <AppText translate bold style={styles.titleCancelActive}>
                 {options.textCancel}
               </AppText>
@@ -96,15 +84,8 @@ const ModalNotification = React.memo(() => {
           {options.hasConfirm && (
             <StyledTouchable
               onPress={onPressConfirm}
-              style={[
-                styles.buttonActiveStyle,
-                !options.hasCancel && {width: scale(237)},
-              ]}>
-              <AppText
-                color={CUSTOM_COLOR.White}
-                translate
-                bold
-                style={styles.titleActive}>
+              style={[styles.buttonActiveStyle, !options.hasCancel && { width: scale(237) }]}>
+              <AppText color={CUSTOM_COLOR.White} translate bold style={styles.titleActive}>
                 {options.textConfirm}
               </AppText>
             </StyledTouchable>
@@ -143,12 +124,7 @@ export const showNotification = (options = optionsDefault) => {
 
 ModalNotification.show = showNotification;
 
-ModalNotification.showConfirm = function (
-  title,
-  message,
-  actions = [],
-  options = {},
-) {
+ModalNotification.showConfirm = function (title, message, actions = [], options = {}) {
   let newOptions = convertOptions(actions, options);
 
   showNotification({
@@ -157,17 +133,12 @@ ModalNotification.showConfirm = function (
     hasConfirm: true,
     hasCancel: false,
     textConfirm: 'popup.close',
-    image: logo, //change your icon here
+    image: icSuccess, //change your icon here
     ...newOptions,
   });
 };
 
-ModalNotification.showSuccess = (
-  title,
-  message,
-  actions = [],
-  options = {},
-) => {
+ModalNotification.showSuccess = (title, message, actions = [], options = {}) => {
   let newOptions = convertOptions(actions, options);
 
   showNotification({
@@ -176,17 +147,12 @@ ModalNotification.showSuccess = (
     hasConfirm: true,
     hasCancel: false,
     textConfirm: 'popup.close',
-    image: icDone,
+    image: icSuccess,
     ...newOptions,
   });
 };
 
-ModalNotification.showWarning = (
-  title,
-  message,
-  actions = [],
-  options = {},
-) => {
+ModalNotification.showWarning = (title, message, actions = [], options = {}) => {
   let newOptions = convertOptions(actions, options);
 
   showNotification({

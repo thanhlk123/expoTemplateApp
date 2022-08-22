@@ -4,12 +4,11 @@ import Indicator from 'components/CircleIndicator';
 import AppLoading from 'components/AppLoading';
 import { CUSTOM_COLOR } from 'constants/colors';
 import SCREENS_NAME from 'constants/screens';
-import navigationActions from 'helpers/navigationActions';
+import navigationActions from 'utils/navigationActions';
 import React, { Suspense } from 'react';
 import { StyleSheet, View } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { useSelector } from 'react-redux';
-import { getLoading } from 'selectors/system';
 import { AppStackScreen } from './TabNavigator';
 const RootStack = createStackNavigator();
 
@@ -22,7 +21,7 @@ const RootStackScreen = (props) => {
 };
 
 const RootNavigator = (props) => {
-  const isLoading = useSelector(getLoading);
+  const isLoading = false;
 
   return (
     <NavigationContainer ref={navigationActions.setNavigator} onStateChange={async (state) => {}}>

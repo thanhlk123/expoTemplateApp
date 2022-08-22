@@ -1,7 +1,6 @@
-import {FONT_SIZE} from 'constants/appFonts';
-import {CUSTOM_COLOR} from 'constants/colors';
-import {StyleSheet} from 'react-native';
-import {scale} from 'utils/responsive';
+import { CUSTOM_COLOR } from 'constants/colors';
+import { StyleSheet } from 'react-native';
+import { scale } from 'utils/responsive';
 
 const styles = StyleSheet.create({
   container: {
@@ -39,9 +38,6 @@ const styles = StyleSheet.create({
     fontSize: scale(16),
     textAlign: 'center',
     color: CUSTOM_COLOR.WildBlueYonder,
-  },
-  titleButton: {
-    fontSize: FONT_SIZE.regular,
   },
   buttonStyle: {
     borderRadius: scale(24),

@@ -1,7 +1,6 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { Text, SafeAreaView, StyleSheet, LogBox } from 'react-native';
 import { RootSiblingParent } from 'react-native-root-siblings';
-import SplashScreen from 'react-native-splash-screen';
 import { PersistGate } from 'redux-persist/integration/react';
 import storeConfig from './redux/store';
 import { CUSTOM_COLOR } from './constants/colors';
@@ -19,12 +18,6 @@ const App = () => {
     "exported from 'deprecated-react-native-prop-types'.",
     'Remote debugger',
   ]);
-
-  useEffect(() => {
-    setTimeout(() => {
-      SplashScreen.hide();
-    }, 2000);
-  }, []);
 
   return (
     <RootSiblingParent>

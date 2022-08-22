@@ -6,10 +6,11 @@ import SCREENS_NAME from 'constants/screens';
 import { StyleSheet, View, Text } from 'react-native';
 import { add, interpolate } from 'react-native-reanimated';
 import { useSelector } from 'react-redux';
-import LoginScreen from 'screens/Auth/Login';
-import RegisterScreen from 'screens/Auth/Register';
-import OnBoardingScreen from 'screens/OnBoarding';
 import { scale } from 'utils/responsive';
+import MainTabbar from 'components/MainTabbar';
+import { IcHome, IcProfile } from 'assets/icons';
+import AppText from 'components/AppText';
+
 const Stack = createStackNavigator();
 const Tab = createBottomTabNavigator();
 
@@ -170,48 +171,7 @@ export const TabStack = () => {
   );
 };
 
-const AuthStack = () => {
-  return (
-    <Stack.Navigator
-      initialRouteName={SCREENS_NAME.ONBOARD_SCREEN}
-      screenOptions={{
-        transitionSpec: {
-          open: config,
-          close: config,
-        },
-        cardStyleInterpolator: forFade,
-        headerStyleInterpolator: forHeaderFade,
-      }}>
-      <Stack.Screen
-        name={SCREENS_NAME.ONBOARD_SCREEN}
-        component={OnBoardingScreen}
-        options={{
-          headerShown: false,
-          gestureEnabled: false,
-        }}
-      />
-      <Stack.Screen
-        name={SCREENS_NAME.REGISTER_SCREEN}
-        component={RegisterScreen}
-        options={{
-          headerShown: false,
-          gestureEnabled: false,
-        }}
-      />
-      <Stack.Screen
-        name={SCREENS_NAME.LOGIN_SCREEN}
-        component={LoginScreen}
-        options={{
-          headerShown: false,
-          gestureEnabled: false,
-        }}
-      />
-    </Stack.Navigator>
-  );
-};
-
 export const AppStackScreen = () => {
-  const { isLogin } = useSelector((state) => state.auth);
   return (
     <Stack.Navigator
       screenOptions={{

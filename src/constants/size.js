@@ -1,5 +1,5 @@
 import { Dimensions, Platform, StatusBar } from 'react-native';
-import { fontScale, scaleH, scaleX } from 'utils/responsive';
+import { fontScale, scaleH, scaleW } from 'utils/responsive';
 
 export const statusBarHeight = StatusBar.currentHeight;
 export const screenHeight = Dimensions.get('screen').height;
@@ -31,22 +31,22 @@ export const FONT_SIZE = {
 };
 
 export const SPACING = {
-  Tiny: scaleX(2),
-  Small: scaleX(4),
-  XSmall: scaleX(6),
-  Normal: scaleX(8),
-  Fit: scaleX(10),
-  XNormal: scaleX(12),
-  XXNormal: scaleX(14),
-  Medium: scaleX(16),
-  XMedium: scaleX(20),
-  Large: scaleX(24),
-  XLarge: scaleX(26),
-  XXLarge: scaleX(32),
+  Tiny: scaleW(2),
+  Small: scaleW(4),
+  XSmall: scaleW(6),
+  Normal: scaleW(8),
+  Fit: scaleW(10),
+  XNormal: scaleW(12),
+  XXNormal: scaleW(14),
+  Medium: scaleW(16),
+  XMedium: scaleW(20),
+  Large: scaleW(24),
+  XLarge: scaleW(26),
+  XXLarge: scaleW(32),
   HasBottomButton: BOTTOM_TAB_HEIGHT + scaleH(52),
-  BottomButton: scaleX(16),
-  HtmlBottom: scaleX(40),
-  BottomInputForm: scaleX(300),
+  BottomButton: scaleW(16),
+  HtmlBottom: scaleW(40),
+  BottomInputForm: scaleW(300),
 };
 
 export const LINE_HEIGHT = {
