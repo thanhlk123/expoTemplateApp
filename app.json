@@ -18,7 +18,8 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": true,
+      "bundleIdentifier": "com.templateExpoThanhlk123"
     },
     "android": {
       "adaptiveIcon": {
