@@ -9,5 +9,6 @@ module.exports = {
   },
   rules: {
     'import/order': 'off',
+    'import/namespace': 'off',
   },
 };

@@ -7,7 +7,7 @@
         "utils/*": ["./src/utils/*"],
         "containers/*": ["./src/containers/*"],
         "components/*": ["./src/components/*"],
-        "services/*": ["./src/services/*"],
+        "apis/*": ["./src/apis/*"],
         "selectors/*": ["./src/redux/selectors/*"],
         "constants/*": ["./src/constants/*"],
         "screens/*": ["./src/screens/*"],

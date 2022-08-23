@@ -6,3 +6,10 @@ export const changeLanguage = (lang) => {
     lang,
   };
 };
+
+export const setLoading = (lang) => {
+  return {
+    type: SETTINGS.SET_LOADING.HANDLER,
+    lang,
+  };
+};

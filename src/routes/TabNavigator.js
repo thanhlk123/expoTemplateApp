@@ -5,7 +5,6 @@ import { CUSTOM_COLOR } from 'constants/colors';
 import SCREENS_NAME from 'constants/screens';
 import { StyleSheet, View, Text } from 'react-native';
 import { add, interpolate } from 'react-native-reanimated';
-import { useSelector } from 'react-redux';
 import { scale } from 'utils/responsive';
 import MainTabbar from 'components/MainTabbar';
 import { IcHome, IcProfile } from 'assets/icons';
@@ -80,7 +79,6 @@ const HomeStack = () => {
 };
 
 const ProfileStack = () => {
-  const { role } = useSelector((state) => state.auth);
   return (
     <Stack.Navigator
       screenOptions={{
@@ -91,7 +89,6 @@ const ProfileStack = () => {
         cardStyleInterpolator: forFade,
         headerStyleInterpolator: forHeaderFade,
       }}>
-      (
       <Stack.Screen
         name={SCREENS_NAME.PROFILE_SCREEN}
         component={DemoScreen}
@@ -120,7 +117,7 @@ export const TabStack = () => {
             active: (
               <View style={styles.activeIconWrapper}>
                 <View style={styles.circleView} />
-                <IcHome color={CUSTOM_COLOR.LightSeaGreen} />
+                <IcHome color={CUSTOM_COLOR.Black} />
                 <AppText size="M" style={styles.titleActive}>
                   Trang chủ
                 </AppText>
@@ -129,7 +126,7 @@ export const TabStack = () => {
             inactive: (
               <View style={styles.activeIconWrapper}>
                 <View style={styles.circleViewInActive} />
-                <IcHome color={CUSTOM_COLOR.SpunPearl} />
+                <IcHome color={CUSTOM_COLOR.Black} />
                 <AppText size="M" style={[styles.titleActive, { color: CUSTOM_COLOR.SpunPearl }]}>
                   Trang chủ
                 </AppText>
@@ -148,7 +145,7 @@ export const TabStack = () => {
             active: (
               <View style={styles.activeIconWrapper}>
                 <View style={styles.circleView} />
-                <IcProfile color={CUSTOM_COLOR.LightSeaGreen} />
+                <IcProfile color={CUSTOM_COLOR.Black} />
                 <AppText size="M" style={styles.titleActive}>
                   Hồ sơ
                 </AppText>
@@ -157,8 +154,8 @@ export const TabStack = () => {
             inactive: (
               <View style={styles.activeIconWrapper}>
                 <View style={styles.circleViewInActive} />
-                <IcProfile color={CUSTOM_COLOR.SpunPearl} />
-                <AppText size="M" style={[styles.titleActive, { color: CUSTOM_COLOR.SpunPearl }]}>
+                <IcProfile color={CUSTOM_COLOR.Black} />
+                <AppText size="M" style={[styles.titleActive, { color: CUSTOM_COLOR.Black }]}>
                   Hồ sơ
                 </AppText>
               </View>

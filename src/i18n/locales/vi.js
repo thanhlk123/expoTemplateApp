@@ -1,6 +1,6 @@
 export default {
-    common: {
-        yes: 'Có',
-        no: 'Không'
-    }
-}
+  common: {
+    yes: 'Có',
+    no: 'Không',
+  },
+};

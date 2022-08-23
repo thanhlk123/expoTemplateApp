@@ -1,18 +1,41 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<View
-  style={
-    Object {
-      "alignItems": "center",
-      "backgroundColor": "#fff",
-      "flex": 1,
-      "justifyContent": "center",
+Array [
+  <Modal
+    animationType="none"
+    deviceHeight={null}
+    deviceWidth={null}
+    hardwareAccelerated={false}
+    hideModalContentWhileAnimating={false}
+    onBackdropPress={[Function]}
+    onModalHide={[Function]}
+    onModalWillHide={[Function]}
+    onModalWillShow={[Function]}
+    onRequestClose={[Function]}
+    panResponderThreshold={4}
+    scrollHorizontal={false}
+    scrollOffset={0}
+    scrollOffsetMax={0}
+    scrollTo={null}
+    statusBarTranslucent={false}
+    supportedOrientations={
+      Array [
+        "portrait",
+        "landscape",
+      ]
     }
-  }
->
-  <Text>
-    Open up App.js to start working on your app!
-  </Text>
-</View>
+    swipeThreshold={100}
+    transparent={true}
+    visible={false}
+  />,
+  <RCTSafeAreaView
+    emulateUnlessSupported={true}
+    style={
+      Object {
+        "backgroundColor": "#FFFFFF",
+      }
+    }
+  />,
+]
 `;

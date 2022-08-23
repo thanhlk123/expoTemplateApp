@@ -15,4 +15,9 @@ export const asyncTypes = (action) => ({
 
 export const SETTINGS = {
   CHANGE_LANGUAGE: asyncTypes('SYSTEM/CHANGE_LANGUAGE'),
+  SET_LOADING: asyncTypes('SYSTEM/SET_LOADING'),
+};
+
+export const DEMO = {
+  CALL_API: asyncTypes('DEMO/CALL_API'),
 };

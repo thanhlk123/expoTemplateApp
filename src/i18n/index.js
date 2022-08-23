@@ -1,12 +1,21 @@
 import { changeLanguage } from 'actions/settings';
-import checkNumber from 'helpers/checkNumber';
-import I18n from 'i18n-js';
+import { checkNumber } from 'utils/formatNumber';
 import Memoize from 'lodash/memoize';
 import moment from 'moment';
 import 'moment/min/locales';
 import { store } from 'store';
 import en from './locales/en';
 import vi from './locales/vi';
+
+const I18n = require('i18n-js').I18n;
+
+const i18n = new I18n({
+  vi,
+  en,
+});
+
+i18n.defaultLocale = 'vi';
+i18n.locale = 'vi';
 
 const translationGetters = {
   vi,
@@ -29,7 +38,7 @@ export const translate = Memoize(
             return ob;
           }
 
-          const trans = I18n.t(ob, config);
+          const trans = i18n.t(ob, config);
 
           if (!trans.match(regexCheckExist)) {
             return trans;
@@ -41,13 +50,13 @@ export const translate = Memoize(
         return newArr.join(' ');
       }
 
-      const textTranslate = I18n.t(key, config);
+      const textTranslate = i18n.t(key, config);
 
       if (textTranslate.match(regexCheckExist) || typeof textTranslate === 'object') {
         return key;
       }
 
-      return I18n.t(key, config);
+      return i18n.t(key, config);
     } catch (error) {
       return key;
     }
@@ -64,16 +73,12 @@ export const translate = Memoize(
 export const setI18nConfig = async (lang = '') => {
   const fallback = { languageTag: lang || 'vi' };
   const { languageTag } = fallback;
-  I18n.locale = languageTag;
-  I18n.translations = {
+  i18n.locale = languageTag;
+  i18n.translations = {
     [languageTag]: translationGetters[languageTag],
   };
-  moment.locale(I18n.locale);
+  moment.locale(i18n.locale);
   translate.cache.clear();
-};
-
-export const loadLanguage = () => {
-  I18n.translations = translationGetters;
 };
 
 // Get current app language
@@ -89,4 +94,4 @@ export const initLanguge = () => {
   }
 };
 
-export default I18n;
+export default i18n;

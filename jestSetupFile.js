@@ -24,3 +24,13 @@ jest.mock('@react-navigation/native', () => {
   };
 });
 
+jest.mock('i18n-js', () => {
+  return {
+    t: (text) => text,
+    locale: '',
+    translations: {},
+    I18n: (dist) => dist,
+  };
+});
+
+jest.useFakeTimers();

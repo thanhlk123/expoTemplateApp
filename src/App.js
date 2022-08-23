@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Text, SafeAreaView, StyleSheet, LogBox } from 'react-native';
 import { RootSiblingParent } from 'react-native-root-siblings';
 import { PersistGate } from 'redux-persist/integration/react';
@@ -10,7 +10,6 @@ import { ModalNotification } from 'components/Modal';
 
 Text.defaultProps = Text.defaultProps || {};
 Text.defaultProps.allowFontScaling = false;
-initLanguge();
 
 const App = () => {
   LogBox.ignoreLogs([
@@ -18,6 +17,9 @@ const App = () => {
     "exported from 'deprecated-react-native-prop-types'.",
     'Remote debugger',
   ]);
+  useEffect(() => {
+    initLanguge();
+  }, []);
 
   return (
     <RootSiblingParent>
